@@ -18,11 +18,11 @@ public class Technology
         if (nameTechnology.trim().isEmpty())
         {
             throw new EmptyFieldException(DomainConstans.Field.NAME.toString());
-        }else if (nameTechnology.length() > 50)
+        } else if (nameTechnology.length() > 50)
         {
             this.nameTechnology = requireNonNull(nameTechnology, DomainConstans.FIELD_NAME_NULL_MESSAGE);
             throw new StringOutOfBoundsException(DomainConstans.Field.NAMEMAX.toString());
-        }else
+        } else
         {
             this.nameTechnology = requireNonNull(nameTechnology, DomainConstans.FIELD_NAMEMAX_OUT_OF_BOUNDS_MESSAGE);
         }
@@ -34,7 +34,7 @@ public class Technology
         {
             this.descriptionTechnology = requireNonNull(descriptionTechnology, DomainConstans.FIELD_DESCRIPTION_NULL_MESSAGE);
             throw new StringOutOfBoundsException(DomainConstans.Field.DESCRIPTIONMAX.toString());
-        }else
+        } else
         {
             this.descriptionTechnology = requireNonNull(descriptionTechnology, DomainConstans.FIELD_DESCRIPTIONMAX_OUT_OF_BOUNDS_MESSAGE);
         }
