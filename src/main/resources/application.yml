@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/db_bootcamp
+    url: jdbc:mysql://localhost:3306/db_bootcamp?createDatabaseIfNotExist=true
     username: root
     password: Miguel2015
   jpa:

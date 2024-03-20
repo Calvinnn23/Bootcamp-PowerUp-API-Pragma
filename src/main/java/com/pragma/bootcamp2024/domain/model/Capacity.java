@@ -6,17 +6,13 @@ import com.pragma.bootcamp2024.util.DomainConstans;
 
 import static java.util.Objects.requireNonNull;
 
-public class Technology {
+public class Capacity {
     private final Long id;
     private final String name;
     private final String description;
-    private Capacity capacity;
 
-
-    public Technology(long id, String name, String description, Capacity capacity) {
+    public Capacity(Long id, String name, String description) {
         this.id = id;
-        this.capacity = requireNonNull(capacity, DomainConstans.FIELD_CAPACITY_NULL_MESSAGE);
-
         if (name.trim().isEmpty()) {
             throw new EmptyFieldException(DomainConstans.Field.NAME.toString());
         } else if (name.length() > 50) {
@@ -47,13 +43,4 @@ public class Technology {
     public String getDescription() {
         return description;
     }
-
-    public Capacity getCapacity() {
-        return capacity;
-    }
-
-    public void setCapacity(Capacity capacity) {
-        this.capacity = capacity;
-    }
-
 }
