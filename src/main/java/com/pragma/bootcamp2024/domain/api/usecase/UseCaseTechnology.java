@@ -9,8 +9,8 @@ import java.util.List;
 public class UseCaseTechnology implements ITechnologyServicePort {
     private final ITechnologyPersistencePort technologyPersistencePort;
 
-    public UseCaseTechnology(ITechnologyPersistencePort ITechnologyPersistencePort) {
-        this.technologyPersistencePort = ITechnologyPersistencePort;
+    public UseCaseTechnology(ITechnologyPersistencePort iTechnologyPersistencePort) {
+        this.technologyPersistencePort = iTechnologyPersistencePort;
     }
 
     @Override

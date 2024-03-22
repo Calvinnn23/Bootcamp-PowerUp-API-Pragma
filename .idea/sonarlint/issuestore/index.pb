@@ -67,3 +67,5 @@ Esrc/main/java/com/pragma/bootcamp2024/domain/util/DomainConstans.java,6\1\612a
 Osrc/main/java/com/pragma/bootcamp2024/domain/exception/EmptyFieldException.java,9\8\98e1fee8f7f0489a2234f76a4b39d29f8cd3baaf
 ù
 msrc/main/java/com/pragma/bootcamp2024/adapters/driven/jpa/mysql/exception/CapacityAlreadyExistsException.java,f\e\febe2a38294aa4be5bbbf743f12e19bea3c97e4e
+
+Osrc/main/java/com/pragma/bootcamp2024/domain/api/usecase/UseCaseTechnology.java,6\9\69f02ed08f56aef38571bae20daba8ba892ac4c9

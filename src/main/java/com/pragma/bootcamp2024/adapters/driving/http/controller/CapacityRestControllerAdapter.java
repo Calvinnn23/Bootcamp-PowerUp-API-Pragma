@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class CapacityRestControllerAdapter {
     private final ICapacityServicePort iCapacityServicePort;
 
     @PostMapping("/capacity")
-    public ResponseEntity<Void> addCapacity(@RequestBody AddCapacityRequest capacityRequest) {
+    public ResponseEntity<Void> addCapacity(@RequestBody @Valid AddCapacityRequest capacityRequest) {
         iCapacityServicePort.addCapacity(iCapacityRequestMapper.addRequestToCapacity(capacityRequest));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
