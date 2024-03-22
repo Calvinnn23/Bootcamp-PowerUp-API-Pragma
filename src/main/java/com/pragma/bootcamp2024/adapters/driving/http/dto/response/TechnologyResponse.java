@@ -6,7 +6,9 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class TechnologyResponse {
-    private final Long idTechnology;
-    private final String nameTechnology;
-    private final String descriptionTechnology;
+    private final Long id;
+    private final String name;
+    private final String description;
+    private final Long capacityId;
+    private final String capacity;
 }

@@ -9,4 +9,16 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface ITechnologyRequestMapper {
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(source = "capacityId", target = "capacity.id")
+    @Mapping(target = "capacity.name", constant = "name")
+    @Mapping(target = "capacity.description", constant = "description")
+    Technology addRequestToTechnology(AddTechnologyRequest addTechnologyRequest);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(source = "capacityId", target = "capacity.id")
+    @Mapping(target = "capacity.name", constant = "name")
+    @Mapping(target = "capacity.description", constant = "description")
+    Technology updateRequestToTechnology(UpdateTechnologyRequest updateTechnologyRequest);
+
 }
