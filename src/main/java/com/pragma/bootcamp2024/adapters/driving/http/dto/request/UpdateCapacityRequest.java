@@ -11,7 +11,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
-public class AddCapacityRequest {
+public class UpdateCapacityRequest {
     @NotNull(message = DomainConstans.FIELD_NAME_NULL_MESSAGE)
     @Size(max = 50, message = DomainConstans.FIELD_NAME_OUT_OF_BOUNDS_MESSAGE)
     private final String name;
@@ -20,5 +20,6 @@ public class AddCapacityRequest {
     @Size(max = 90, message = DomainConstans.FIELD_DESCRIPTION_OUT_OF_BOUNDS_MESSAGE)
     private final String description;
 
+    @NotNull(message = DomainConstans.FIELD_TECHNOLOGY_NULL_MESSAGE)
     private List<Technology> technologies;
 }

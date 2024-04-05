@@ -7,39 +7,39 @@ import com.pragma.bootcamp2024.domain.spi.ITechnologyPersistencePort;
 import java.util.List;
 
 public class UseCaseTechnology implements ITechnologyServicePort {
-    private final ITechnologyPersistencePort technologyPersistencePort;
+    private final ITechnologyPersistencePort iTechnologyPersistencePort;
 
     public UseCaseTechnology(ITechnologyPersistencePort iTechnologyPersistencePort) {
-        this.technologyPersistencePort = iTechnologyPersistencePort;
+        this.iTechnologyPersistencePort = iTechnologyPersistencePort;
     }
 
     @Override
     public void saveTechnology(Technology technology) {
-        technologyPersistencePort.saveTechnology(technology);
+        iTechnologyPersistencePort.saveTechnology(technology);
     }
 
     @Override
     public Technology getTechnology(String name) {
-        return technologyPersistencePort.getTechnology(name);
+        return iTechnologyPersistencePort.getTechnology(name);
     }
 
     @Override
     public List<Technology> getAllTechnologies(Integer page, Integer size) {
-        return technologyPersistencePort.getAllTechnologies(page, size);
+        return iTechnologyPersistencePort.getAllTechnologies(page, size);
     }
 
     @Override
     public List<Technology> getAllTechnologiesByCapacity(String capacity, Integer page, Integer size) {
-        return technologyPersistencePort.getAllTechnologiesByCapacity(capacity, page, size);
+        return iTechnologyPersistencePort.getAllTechnologiesByCapacity(capacity, page, size);
     }
 
     @Override
     public Technology updateTechnology(Technology technology) {
-        return technologyPersistencePort.updateTechnology(technology);
+        return iTechnologyPersistencePort.updateTechnology(technology);
     }
 
     @Override
     public void deleteProduct(Long id) {
-        technologyPersistencePort.deleteTechnology(id);
+        iTechnologyPersistencePort.deleteTechnology(id);
     }
 }

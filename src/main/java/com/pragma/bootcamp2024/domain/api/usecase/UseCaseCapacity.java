@@ -15,12 +15,32 @@ public class UseCaseCapacity implements ICapacityServicePort {
     }
 
     @Override
-    public void addCapacity(Capacity capacity) {
-        iCapacityPersistencePort.addCapacity(capacity);
+    public void saveCapacity(Capacity capacity) {
+        iCapacityPersistencePort.saveCapacity(capacity);
     }
 
     @Override
-    public List<Capacity> getAllCapacities() {
-        return iCapacityPersistencePort.getAllCapacities();
+    public Capacity getCapacity(String name) {
+        return iCapacityPersistencePort.getcapacity(name);
+    }
+
+    @Override
+    public List<Capacity> getAllCapacities(Integer page, Integer size) {
+        return iCapacityPersistencePort.getAllCapacities(page, size);
+    }
+
+    @Override
+    public List<Capacity> getAllCapacitiesByTechnology(String technology, Integer page, Integer size) {
+        return iCapacityPersistencePort.getAllCapacitiesByTechnology(technology, page, size);
+    }
+
+    @Override
+    public Capacity updateCapacity(Capacity capacity) {
+        return iCapacityPersistencePort.updateCapacity(capacity);
+    }
+
+    @Override
+    public void deleteCapacity(Long id) {
+        iCapacityPersistencePort.deleteCapacity(id);
     }
 }

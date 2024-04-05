@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "technology")
@@ -19,8 +20,6 @@ public class TechnologyEntity {
     private Long id;
     private String name;
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "id_capacity")
-    private CapacityEntity capacity;
-
+    @ManyToMany(mappedBy = "technologies")
+    private List<CapacityEntity> capacities;
 }

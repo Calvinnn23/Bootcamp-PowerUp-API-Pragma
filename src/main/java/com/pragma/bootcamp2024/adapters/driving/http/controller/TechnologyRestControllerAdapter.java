@@ -23,7 +23,7 @@ public class TechnologyRestControllerAdapter {
     private final ITechnologyResponseMapper iTechnologyResponseMapper;
 
     @PostMapping("/technology")
-    public ResponseEntity<Void> addTechnology(@RequestBody @Valid AddTechnologyRequest technologyRequest) {
+    public ResponseEntity<Void> saveTechnology(@RequestBody @Valid AddTechnologyRequest technologyRequest) {
         iTechnologyServicePort.saveTechnology(iTechnologyRequestMapper.addRequestToTechnology(technologyRequest));
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -38,18 +38,18 @@ public class TechnologyRestControllerAdapter {
         return ResponseEntity.ok(iTechnologyResponseMapper.toTechnologyResponsList(iTechnologyServicePort.getAllTechnologies(page, size)));
     }
 
-    @GetMapping("/capacity/{capacityName}")
+    @GetMapping("/technology/{capacityName}")
     public ResponseEntity<List<TechnologyResponse>> getAllTechnologiesByCapacity(@RequestParam Integer page, @RequestParam Integer size, @PathVariable String capacityName) {
         return ResponseEntity.ok(iTechnologyResponseMapper.toTechnologyResponsList(iTechnologyServicePort.getAllTechnologiesByCapacity(capacityName, page, size)));
     }
 
     @PutMapping("/technology")
-    public ResponseEntity<TechnologyResponse> updateTechnology(@PathVariable UpdateTechnologyRequest technologyRequest) {
+    public ResponseEntity<TechnologyResponse> updateTechnology(@RequestBody @Valid UpdateTechnologyRequest technologyRequest) {
         return ResponseEntity.ok(iTechnologyResponseMapper.toTechnologyResponse(iTechnologyServicePort.updateTechnology(iTechnologyRequestMapper.updateRequestToTechnology(technologyRequest))));
     }
 
     @DeleteMapping("/technology/{id}")
-    public ResponseEntity<Void> deleteTechnology(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTechnology(@PathVariable @Valid Long id) {
         iTechnologyServicePort.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }

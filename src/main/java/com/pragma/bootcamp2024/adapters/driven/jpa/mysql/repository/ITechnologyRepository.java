@@ -15,6 +15,5 @@ public interface ITechnologyRepository extends JpaRepository<TechnologyEntity, L
 
     Page<TechnologyEntity> findAll(Pageable pageable);
 
-    Page<TechnologyEntity> findAllByCapacityNameContaining(String capacity, Pageable pageable);
-
+    Page<TechnologyEntity> findAllByCapacityContaining(String capacity, Pageable pageable);
 }

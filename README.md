@@ -1,3 +1,3 @@
-Hasta ahora llevo los registros de tecnologías y capacidades.
-Proximo realizar bien los listados y los testeos.
--  Miguel Rojas
+Bootcamp PowerUp 2024 project by Pragma
+
+- Made by Miguel Rojas

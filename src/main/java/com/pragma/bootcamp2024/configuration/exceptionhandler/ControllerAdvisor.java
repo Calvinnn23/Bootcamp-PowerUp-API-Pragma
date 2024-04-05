@@ -45,6 +45,12 @@ public class ControllerAdvisor {
                 HttpStatus.BAD_REQUEST.toString(), LocalDateTime.now()));
     }
 
+    @ExceptionHandler(TechnologyNotFoundException.class)
+    public ResponseEntity<ExceptionResponse> handlerTechnologyNotFoundException() {
+        return ResponseEntity.badRequest().body(new ExceptionResponse(Constants.TECHNOLOGY_NOT_FOUND_EXCEPTION_MESSAGE,
+                HttpStatus.BAD_REQUEST.toString(), LocalDateTime.now()));
+    }
+
     @ExceptionHandler(CapacityAlreadyExistsException.class)
     public ResponseEntity<ExceptionResponse> handlerCapacityAlreadyExistsException() {
         return ResponseEntity.badRequest().body(new ExceptionResponse(Constants.CAPACITY_ALREADY_EXISTS_EXCEPTION_MESSAGE,

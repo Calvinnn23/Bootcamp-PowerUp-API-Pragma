@@ -26,7 +26,7 @@ public class BeanConfiguration {
 
     @Bean
     public ITechnologyPersistencePort technologyPersistencePort() {
-        return new TechnologyAdapter(iTechnologyRepository, iTechnologyEntityMapper, iCapacityRepository, iCapacityEntityMapper);
+        return new TechnologyAdapter(iTechnologyRepository, iTechnologyEntityMapper);
     }
 
     @Bean
@@ -36,7 +36,7 @@ public class BeanConfiguration {
 
     @Bean
     public ICapacityPersistencePort capacityPersistencePort() {
-        return new CapacityAdapter(iCapacityRepository, iCapacityEntityMapper);
+        return new CapacityAdapter(iCapacityRepository, iCapacityEntityMapper, iTechnologyRepository, iTechnologyEntityMapper);
     }
 
     @Bean

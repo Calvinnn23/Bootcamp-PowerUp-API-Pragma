@@ -1,18 +1,19 @@
 package com.pragma.bootcamp2024.domain.model;
 
+import java.util.List;
+
 public class Technology {
     private final Long id;
     private final String name;
     private final String description;
-    private Capacity capacity;
+    private List<Capacity> capacities;
 
-    public Technology(Long id, String name, String description, Capacity capacity) {
+    public Technology(Long id, String name, String description, List<Capacity> capacities) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.capacity = capacity;
+        this.capacities = capacities;
     }
-
 
     public Long getId() {
         return id;
@@ -26,12 +27,11 @@ public class Technology {
         return description;
     }
 
-    public Capacity getCapacity() {
-        return capacity;
+    public List<Capacity> getCapacities() {
+        return capacities;
     }
 
-    public void setCapacity(Capacity capacity) {
-        this.capacity = capacity;
+    public void setCapacities(List<Capacity> capacities) {
+        this.capacities = capacities;
     }
-
 }
