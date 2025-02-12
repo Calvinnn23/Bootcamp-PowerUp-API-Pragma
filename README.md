@@ -1,59 +1,85 @@
-# Bootcamp PowerUp API Pragma
+# Bootcamp PowerUp API - Pragma
 
-Este proyecto es el backend desarrollado durante el Bootcamp OnClass de Pragma en 2024. Proporciona una API RESTful construida con [especificar tecnología, por ejemplo, Spring Boot] para [describir brevemente la funcionalidad principal, por ejemplo, "gestionar un sistema de reservas", "administrar un catálogo de productos", etc.].
+Este proyecto es parte de la iniciativa **On-Class**, una plataforma que facilita la organización de bootcamps tecnológicos, permitiendo la comunicación entre tutores y participantes. La API está diseñada para gestionar tecnologías, capacidades y bootcamps, asegurando una estructura sólida para el crecimiento en diversas áreas tecnológicas.
 
-## Características
+## Planteamiento
 
-- **Gestión de [especificar recursos, por ejemplo, "usuarios", "productos", "pedidos"]**: [Describir brevemente las operaciones principales, por ejemplo, "crear, leer, actualizar y eliminar registros de usuarios."].
-- **Autenticación y Autorización**: [Describir el método utilizado, por ejemplo, "implementación de JWT para la autenticación de usuarios."].
-- **Validación de Datos**: [Mencionar si se utilizan validaciones, por ejemplo, "validación de entradas del usuario para garantizar la integridad de los datos."].
-- **Manejo de Errores**: [Describir cómo se manejan los errores, por ejemplo, "gestión centralizada de excepciones para respuestas coherentes."].
+**On-Class** busca ofrecer oportunidades de crecimiento en carreras tecnológicas mediante bootcamps sincrónicos. Esta API servirá como backend para la plataforma web, permitiendo:
 
-## Requisitos Previos
+- La creación y gestión de tecnologías, capacidades y bootcamps.
+- La organización de iteraciones de bootcamps con tutores y participantes.
+- La administración de entregables para evaluar el progreso de los participantes.
 
-- **Java 17**: Asegúrate de tener instalada la versión 17 de Java.
-- **Gradle**: Utilizado como herramienta de construcción del proyecto.
-- **Base de Datos**: MySQL para creación de tablas y gestión de datos.
+## Tecnologías Utilizadas
 
-## Instalación
+- **Lenguaje:** Java
+- **Framework:** Spring Boot
+- **Documentación API:** OpenAPI
+- **Pruebas Unitarias:** JUnit, Mockito
+- **Base de Datos:** Cada microservicio persiste en su propia base de datos.
 
-1. **Clonar el repositorio**:
+## Arquitectura
 
-   ```bash
-   git clone https://github.com/Calvinnn23/Bootcamp-PowerUp-API-Pragma.git
-   cd Bootcamp-PowerUp-API-Pragma
-   ```
+El proyecto sigue una **arquitectura hexagonal**, asegurando una separación clara entre la lógica de negocio y los puertos de entrada/salida. Cada microservicio es independiente y está documentado con OpenAPI.
 
-2. **Configuración de la Base de Datos**:
+## Historias de Usuario Implementadas
 
-   - Crea una base de datos llamada `db_onclass`.
-   - Configura las credenciales de la base de datos en el archivo `src/main/resources/application.properties`:
+### Semana 1
 
-     ```properties
-     spring.datasource.url=jdbc:[tipo_bd]://localhost:5432/db_onclass
-     spring.datasource.username=root
-     spring.datasource.password=1234
-     ```
+1. **Registrar Tecnologías**  
+   **Rol:** Admin  
+   **Descripción:** Permite registrar tecnologías que serán utilizadas en las capacidades.  
+   **Objetivo:** Saber a qué tecnologías apunta cada bootcamp.  
+   **Criterios de Aceptación:**  
+   - Cada tecnología tiene `id`, `nombre` y `descripción`.
+   - El nombre de la tecnología no se puede repetir.
+   - Todas las tecnologías deben tener una descripción.
+   - El nombre tiene un máximo de 50 caracteres.
+   - La descripción tiene un máximo de 90 caracteres.
 
-3. **Construir y Ejecutar la Aplicación**:
+2. **Listar Tecnologías**  
+   **Rol:** Admin  
+   **Descripción:** Permite listar las tecnologías registradas.  
+   **Objetivo:** Visualizar tecnologías creadas.  
+   **Criterios de Aceptación:**  
+   - Listado ordenado ascendente o descendente por nombre.
+   - El servicio debe estar paginado.
 
-   - Compila el proyecto:
+### Semana 2
 
-     ```bash
-     ./gradlew build
-     ```
+3. **Registrar Capacidades**  
+   **Rol:** Admin  
+   **Descripción:** Permite registrar capacidades para agrupar tecnologías.  
+   **Objetivo:** Organizar tecnologías en capacidades específicas.  
+   **Criterios de Aceptación:**  
+   - Cada capacidad tiene `id`, `nombre` y `descripción`.
+   - Mínimo 3 tecnologías asociadas.
+   - No puede haber tecnologías repetidas en una capacidad.
+   - Máximo 20 tecnologías por capacidad.
 
-   - Ejecuta la aplicación:
+4. **Listar Capacidades**  
+   **Rol:** Admin  
+   **Descripción:** Permite listar capacidades creadas.  
+   **Objetivo:** Visualizar capacidades registradas.  
+   **Criterios de Aceptación:**  
+   - Listado ordenado por nombre o cantidad de tecnologías.
+   - Servicio paginado.
+   - Mostrar listado de tecnologías con `nombre` e `id`.
 
-     ```bash
-     ./gradlew bootRun
-     ```
+5. **Registrar Bootcamp**  
+   **Rol:** Admin  
+   **Descripción:** Permite registrar bootcamps para iniciar eventos.  
+   **Objetivo:** Iniciar la organización de nuevos bootcamps.  
+   **Criterios de Aceptación:**  
+   - Cada bootcamp tiene `id`, `nombre`, `descripción` y capacidades asociadas.
+   - Mínimo 1 capacidad y máximo 4 por bootcamp.
 
-   La API estará disponible en `http://localhost:8080`.
-
-## Uso
-
-Proporciona ejemplos de cómo interactuar con la API, por ejemplo, utilizando herramientas como Postman.
-
-
+6. **Listar Bootcamps**  
+   **Rol:** Admin  
+   **Descripción:** Permite listar bootcamps creados.  
+   **Objetivo:** Visualizar bootcamps registrados.  
+   **Criterios de Aceptación:**  
+   - Listado ordenado por nombre o cantidad de capacidades.
+   - Servicio paginado.
+   - Mostrar capacidades asociadas (`nombre`, `id`) y tecnologías (`nombre`, `id`).
 
